@@ -29,7 +29,6 @@ def retrieve_players(url):
 
 def get_all_players(url):
     # Send a GET request to the URL
-    print(url)
     response = requests.get(url)
     
     # Parse the HTML content of the page
@@ -48,7 +47,7 @@ def get_all_players(url):
         if link_strip:
             players_url = url[:-1] + "/" + link['href'].split("/")[-2] + "/"
             players = retrieve_players(players_url)
-            tqdm.write(f"{players_url} | {str(len(players))}")
+            # tqdm.write(f"{players_url} | {str(len(players))}")
             player_urls.update(players)
             
             time.sleep(random.randint(5, 10))
